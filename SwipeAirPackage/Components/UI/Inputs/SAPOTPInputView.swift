@@ -118,20 +118,36 @@ extension SAPOTPInputView: UITextFieldDelegate {
             self.shake(duration: 0.4, pathLength: 8)
         }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.count > 1 { return false }
-
+        // 1. Handle backspace
         if string.isEmpty {
             textField.text = ""
+            
+            // Move to previous field only if current field is empty and not the first
             if range.location == 0,
-               let previous = viewWithTag(textField.tag - 1) as? UITextField {
-                previous.becomeFirstResponder()
+               let previousField = viewWithTag(textField.tag - 1) as? UITextField {
+                previousField.becomeFirstResponder()
             }
             return false
         }
 
+        // 2. Only allow 1 digit
+        guard string.count == 1, string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil else {
+            return false
+        }
 
+        // 3. Set text manually (limiting to 1 digit)
         textField.text = string
-        textChanged(textField)
+
+        // 4. Move to next field or end
+        let nextTag = textField.tag + 1
+        if nextTag < textFields.count {
+            textFields[nextTag].becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            onOTPEntered?(getOTP())
+        }
+
         return false
     }
+
 }

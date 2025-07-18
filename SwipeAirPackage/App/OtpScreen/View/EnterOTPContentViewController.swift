@@ -7,6 +7,8 @@
         /// Store signup request data
         var emailOrContact: String!
         var password: String!
+        var requestType: String!
+
 
         private var titleSubtitleView: TitleSubtitleView!
         private var otpInputView: SAPOTPInputView!
@@ -112,7 +114,7 @@
         
         private func handleContinue() {
             let otp = otpInputView.getOTP()
-            
+
             guard otp.count == 4, otp.allSatisfy({ $0.isNumber }) else {
                 showAlert("Error", "Please enter a valid 4-digit OTP")
                 return
@@ -122,13 +124,11 @@
             print("📩 Email/Contact: \(emailOrContact ?? "nil")")
             print("🔐 Password: \(password ?? "nil")")
             print("🔢 OTP: \(otp)")
-            
+
             continueButton.isLoading = true
 
             let request = SendAndVerifyOtpRequest(emailOrContact: emailOrContact, otp: otp)
-            
-            print("request",request)
-            
+
             AuthService.shared.sendAndVerifyOtp(request: request) { [weak self] result in
                 DispatchQueue.main.async {
                     self?.continueButton.isLoading = false
@@ -136,27 +136,47 @@
                     switch result {
                     case .success(let response):
                         if response.status {
-                            print("response",response)
                             print("✅ OTP verified: \(response.message ?? "")")
-                            let alert = UIAlertController(
-                                title: "Success",
-                                message: response.message ?? "OTP verified successfully", // ✅ API message shown here
-                                preferredStyle: .alert
-                            )
-                            alert.addAction(UIAlertAction(title: "Continue", style: .default) { _ in
-                                // Navigate to next screen here
-                            })
-                            self?.present(alert, animated: true)
+
+                            if self?.requestType == "signup" {
+                                // 🔸 SIGNUP flow
+                                guard let signupRequest = self?.signupRequest else {
+                                    self?.showAlert("Error", "Missing signup request data.")
+                                    return
+                                }
+
+                                self?.continueButton.isLoading = true
+                                AuthService.shared.signup(request: signupRequest) { signupResult in
+                                    DispatchQueue.main.async {
+                                        self?.continueButton.isLoading = false
+                                        switch signupResult {
+                                        case .success(let signupResponse):
+                                            print("🎉 Signup successful: \(signupResponse)")
+                                            self?.showAlert("Success", signupResponse.notification ?? "Signup successful.")
+                                            // 👉 Navigate to home/profile if needed
+                                        case .failure(let error):
+                                            self?.showAlert("Signup Failed", error.localizedDescription)
+                                        }
+                                    }
+                                }
+                            } else if self?.requestType == "login" {
+                                // 🔸 LOGIN flow
+                                self?.showAlert("Success", "Login successful!")
+                                // 👉 Navigate to home screen if needed
+                            }
+
                         } else {
                             self?.showAlert("Verification Failed", response.message ?? "Invalid OTP.")
                             self?.otpInputView.clearOTP()
                         }
+
                     case .failure(let error):
                         self?.showAlert("Error", "Network error: \(error.localizedDescription)")
                     }
                 }
             }
         }
+
 
 
         

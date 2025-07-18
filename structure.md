@@ -1,5 +1,6 @@
 .
 ├── EnterOTPViewController.txt
+├── Podfile
 ├── structure.md
 ├── SwipeAirPackage
 │   ├── API
@@ -14,13 +15,27 @@
 │   │   │       │   ├── SignupRequest.swift
 │   │   │       │   └── SignupResponse.swift
 │   │   │       └── VerifySignUpOtp
-│   │   │           ├── VerifySignUpOtpRequest.swift
-│   │   │           └── VerifySignUpOtpResponse.swift
+│   │   │           ├── SendAndVerifyOtpRequest.swift
+│   │   │           └── SendAndVerifyOtpResponse.swift
 │   │   └── Services
 │   │       ├── APIService.swift
 │   │       └── Auth
 │   │           └── AuthService.swift
 │   ├── App
+│   │   ├── HomeScreen
+│   │   │   ├── Model
+│   │   │   │   └── HomeScreen.swift
+│   │   │   ├── View
+│   │   │   │   └── HomeContentViewController.swift
+│   │   │   └── ViewController
+│   │   │       └── HomeViewController.swift
+│   │   ├── LoginScreen
+│   │   │   ├── Model
+│   │   │   │   └── LoginScreen.swift
+│   │   │   ├── View
+│   │   │   │   └── LoginContentViewController.swift
+│   │   │   └── ViewController
+│   │   │       └── LoginViewController.swift
 │   │   ├── Onboarding
 │   │   │   ├── Model
 │   │   │   │   └── OnboardingScreen.swift
@@ -53,6 +68,70 @@
 │   │   │   └── Contents.json
 │   │   ├── AppIcon.appiconset
 │   │   │   └── Contents.json
+│   │   ├── BottomTabBar
+│   │   │   ├── activityIcon.imageset
+│   │   │   │   ├── 🔍-Product-Icons.png
+│   │   │   │   ├── 🔍-Product-Icons@2x.png
+│   │   │   │   ├── 🔍-Product-Icons@3x.png
+│   │   │   │   └── Contents.json
+│   │   │   ├── Contents.json
+│   │   │   ├── homeIcon.imageset
+│   │   │   │   ├── Contents.json
+│   │   │   │   ├── style=doutone.png
+│   │   │   │   ├── style=doutone@2x.png
+│   │   │   │   └── style=doutone@3x.png
+│   │   │   ├── Homescreen
+│   │   │   │   ├── box.imageset
+│   │   │   │   │   ├── box-svgrepo-com (1).png
+│   │   │   │   │   ├── box-svgrepo-com (1)@2x.png
+│   │   │   │   │   ├── box-svgrepo-com (1)@3x.png
+│   │   │   │   │   └── Contents.json
+│   │   │   │   ├── car.imageset
+│   │   │   │   │   ├── Contents.json
+│   │   │   │   │   ├── Group 8919.png
+│   │   │   │   │   ├── Group 8919@2x.png
+│   │   │   │   │   └── Group 8919@3x.png
+│   │   │   │   ├── Contents.json
+│   │   │   │   ├── customerImage.imageset
+│   │   │   │   │   ├── Contents.json
+│   │   │   │   │   ├── Ellipse 403.png
+│   │   │   │   │   ├── Ellipse 403@2x.png
+│   │   │   │   │   └── Ellipse 403@3x.png
+│   │   │   │   ├── dateTimeIcon.imageset
+│   │   │   │   │   ├── Contents.json
+│   │   │   │   │   ├── date-time-svgrepo-com.png
+│   │   │   │   │   ├── date-time-svgrepo-com@2x.png
+│   │   │   │   │   └── date-time-svgrepo-com@3x.png
+│   │   │   │   ├── office.imageset
+│   │   │   │   │   ├── Contents.json
+│   │   │   │   │   ├── Group 9537.png
+│   │   │   │   │   ├── Group 9537@2x.png
+│   │   │   │   │   └── Group 9537@3x.png
+│   │   │   │   ├── searchIcon.imageset
+│   │   │   │   │   ├── Contents.json
+│   │   │   │   │   ├── Union 19.png
+│   │   │   │   │   ├── Union 19@2x.png
+│   │   │   │   │   └── Union 19@3x.png
+│   │   │   │   └── swipeairgobanner.imageset
+│   │   │   │       ├── Contents.json
+│   │   │   │       ├── Group 9201.png
+│   │   │   │       ├── Group 9201@2x.png
+│   │   │   │       └── Group 9201@3x.png
+│   │   │   ├── profileIcon.imageset
+│   │   │   │   ├── account-svgrepo-com.png
+│   │   │   │   ├── account-svgrepo-com@2x.png
+│   │   │   │   ├── account-svgrepo-com@3x.png
+│   │   │   │   └── Contents.json
+│   │   │   ├── servicesIcon.imageset
+│   │   │   │   ├── Contents.json
+│   │   │   │   ├── menu-svgrepo-com (1).png
+│   │   │   │   ├── menu-svgrepo-com (1)@2x.png
+│   │   │   │   └── menu-svgrepo-com (1)@3x.png
+│   │   │   └── toolsIcon.imageset
+│   │   │       ├── Contents.json
+│   │   │       ├── Group 9873.png
+│   │   │       ├── Group 9873@2x.png
+│   │   │       └── Group 9873@3x.png
 │   │   ├── Contents.json
 │   │   ├── Misc
 │   │   │   ├── Contents.json
@@ -123,22 +202,30 @@
 │   │           ├── Group9967@2x.png
 │   │           └── Group9967@3x.png
 │   ├── Bridges
+│   │   ├── LoginScreenBridgeView.swift
 │   │   ├── SignUpScreenBridgeView.swift
+│   │   ├── UIKitBottomTabBarBridge.swift
 │   │   ├── UIKitEnterOTPBridge.swift
 │   │   ├── UIKitOnboardingView.swift
 │   │   └── WelcomeScreenBridgeView.swift
 │   ├── Components
 │   │   ├── Base
 │   │   ├── Cells
+│   │   ├── RadialGradientLayer.swift
 │   │   └── UI
 │   │       ├── Buttons
+│   │       │   ├── AddressButtonView.swift
 │   │       │   ├── SAPButton.swift
-│   │       │   └── SAPSocialButtons.swift
+│   │       │   ├── SAPSecondaryButton.swift
+│   │       │   ├── SAPSocialButtons.swift
+│   │       │   └── TabButtonGroupView.swift
 │   │       ├── Inputs
 │   │       │   ├── SAPOTPInputView.swift
 │   │       │   ├── SAPPasswordInputView.swift
 │   │       │   ├── SAPPhoneInputView.swift
 │   │       │   └── SAPTextInputView.swift
+│   │       ├── TabBar
+│   │       │   └── BottomTabBarController.swift
 │   │       └── TitleSubtitleView.swift
 │   ├── Constants
 │   ├── ContentView.swift
@@ -228,4 +315,4 @@
     ├── SwipeAirPackageUITests.swift
     └── SwipeAirPackageUITestsLaunchTests.swift
 
-82 directories, 147 files
+105 directories, 211 files

@@ -168,13 +168,15 @@ class LoginContentViewController: UIViewController {
         loginModeToggleButton.setTitle(isUsingPassword ? "Login with OTP" : "Login with Password", for: .normal)
     }
 	
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationItem.hidesBackButton = true
+    }
 
     
     @objc private func handleSignupTap() {
-        let signupBridgeView = SignUpScreenBridgeView()
-        let hostingVC = UIHostingController(rootView: signupBridgeView)
-        hostingVC.navigationItem.hidesBackButton = true
-        navigationController?.pushViewController(hostingVC, animated: true)
+        let signUpVC = SignUpContentViewController()
+        navigationController?.pushViewController(signUpVC, animated: true)
     }
 
 

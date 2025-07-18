@@ -29,7 +29,7 @@ class SignUpContentViewController: UIViewController {
     private var signUpButton: SAPButton!
     private let loginTextLabel = UILabel()
     private let socialStack = SAPSocialButtons()
-    
+
     
     private func applyGradientBackground() {
         let gradientHeight: CGFloat = 193
@@ -180,9 +180,18 @@ class SignUpContentViewController: UIViewController {
                             print("✅ OTP sent - navigating to OTP screen")
                             
                             // Navigate to next screen
+                            let signupRequest = SignupRequest(
+                                emailOrMobile: inputValue!,
+                                password: password,
+                                confirmPassword: confirmPassword
+                            )
+
                             let nextVC = EnterOTPContentViewController()
                             nextVC.emailOrContact = inputValue!
                             nextVC.password = password
+                            nextVC.requestType = "signup"
+                            nextVC.signupRequest = signupRequest // ✅ Pass this
+
                             self?.navigationController?.pushViewController(nextVC, animated: true)
                         })
                         self?.present(alert, animated: true)
@@ -204,13 +213,21 @@ class SignUpContentViewController: UIViewController {
         print("Accepted Terms: \(isChecked)")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            self.navigationItem.hidesBackButton = true
+    }
 
 
     
     @objc private func handleLoginTap() {
-        print("Login tapped")
-        // Present login screen or navigate accordingly
-    }
+        let loginVC = UIHostingController(rootView: LoginScreenBridgeView())
+                let navVC = UINavigationController(rootViewController: loginVC  )
+                navVC.navigationBar.topItem?.hidesBackButton = true
+                navVC.modalPresentationStyle = .fullScreen
+
+                present(navVC, animated: true)
+        }
 
 
 
@@ -221,7 +238,7 @@ class SignUpContentViewController: UIViewController {
         
         emailTextField.isHidden = true
         emailTextField.placeholder = "Enter Email Address"
-        emailTextField.text  = "bruce@yopmail.com"
+        emailTextField.text  = "josbuttler74@yopmail.com"
         
         toggleInputModeLabel.text = "Use Email Instead"
         toggleInputModeLabel.font = UIFont.jost(.medium, size: 16)

@@ -2,10 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UILaunchStoryboardName</key>
-	<string>SplashScreen.storyboard</string>
+    <key>UILaunchStoryboardName</key>
+    <string>SplashScreen.storyboard</string>
     <key>UIAppFonts</key>
     <array>
+        <!-- Jost Fonts -->
         <string>Jost-Thin.ttf</string>
         <string>Jost-ExtraLight.ttf</string>
         <string>Jost-Light.ttf</string>
@@ -24,8 +25,24 @@
         <string>Jost-BoldItalic.ttf</string>
         <string>Jost-ExtraBoldItalic.ttf</string>
         <string>Jost-BlackItalic.ttf</string>
+        <!-- Rubik Fonts -->
+        <string>Rubik-Black.ttf</string>
+        <string>Rubik-BlackItalic.ttf</string>
+        <string>Rubik-Bold.ttf</string>
+        <string>Rubik-BoldItalic.ttf</string>
+        <string>Rubik-ExtraBold.ttf</string>
+        <string>Rubik-ExtraBoldItalic.ttf</string>
+        <string>Rubik-Italic-VariableFont_wght.ttf</string>
+        <string>Rubik-Italic.ttf</string>
+        <string>Rubik-Light.ttf</string>
+        <string>Rubik-LightItalic.ttf</string>
+        <string>Rubik-Medium.ttf</string>
+        <string>Rubik-MediumItalic.ttf</string>
+        <string>Rubik-Regular.ttf</string>
+        <string>Rubik-SemiBold.ttf</string>
+        <string>Rubik-SemiBoldItalic.ttf</string>
+        <string>Rubik-VariableFont_wght.ttf</string>
     </array>
-    
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSExceptionDomains</key>
@@ -39,7 +56,9 @@
             </dict>
         </dict>
     </dict>
-
-
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to show nearby addresses</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>We need your location to show nearby addresses</string>
 </dict>
 </plist>

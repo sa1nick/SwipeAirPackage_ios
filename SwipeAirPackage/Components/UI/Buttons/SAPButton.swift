@@ -56,6 +56,7 @@ class SAPButton: UIButton {
         // Activity indicator
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = .white // ✅ Force white color
         addSubview(activityIndicator)
 
         NSLayoutConstraint.activate([
@@ -75,13 +76,24 @@ class SAPButton: UIButton {
     // MARK: - Loading State Management
     private func updateLoadingState() {
         isUserInteractionEnabled = !isLoading
+
         if isLoading {
             originalTitle = self.configuration?.title
-            self.configuration?.title = ""
+
+            // Remove title to make space
+            var newConfig = self.configuration
+            newConfig?.title = ""
+            self.configuration = newConfig
+
             activityIndicator.startAnimating()
         } else {
-            self.configuration?.title = originalTitle
+            // Restore title
+            var newConfig = self.configuration
+            newConfig?.title = originalTitle
+            self.configuration = newConfig
+
             activityIndicator.stopAnimating()
         }
     }
+
 }

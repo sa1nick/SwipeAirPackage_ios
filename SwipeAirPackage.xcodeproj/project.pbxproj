@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		7B448C5F2E17A25100B91951 /* EnterOTPViewController.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7B448C5E2E17A25100B91951 /* EnterOTPViewController.txt */; };
-		7BAB17272E165BE800B8FC2F /* CountryPickerView in Frameworks */ = {isa = PBXBuildFile; productRef = 7BAB17262E165BE800B8FC2F /* CountryPickerView */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		7B0352922E094C840069185E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -32,13 +27,13 @@
 		7B03527E2E094C810069185E /* SwipeAirPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeAirPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0352912E094C840069185E /* SwipeAirPackageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeAirPackageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B03529B2E094C840069185E /* SwipeAirPackageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeAirPackageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B448C5E2E17A25100B91951 /* EnterOTPViewController.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = EnterOTPViewController.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		7B7B05DF2E13B26C00F47194 /* Exceptions for "SwipeAirPackage" folder in "SwipeAirPackage" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Components/Misc/Untitled.swift,
 				Info.plist,
 			);
 			target = 7B03527D2E094C810069185E /* SwipeAirPackage */;
@@ -56,11 +51,15 @@
 		};
 		7B0352942E094C840069185E /* SwipeAirPackageTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = SwipeAirPackageTests;
 			sourceTree = "<group>";
 		};
 		7B03529E2E094C840069185E /* SwipeAirPackageUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = SwipeAirPackageUITests;
 			sourceTree = "<group>";
 		};
@@ -71,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BAB17272E165BE800B8FC2F /* CountryPickerView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +97,7 @@
 				7B0352942E094C840069185E /* SwipeAirPackageTests */,
 				7B03529E2E094C840069185E /* SwipeAirPackageUITests */,
 				7B03527F2E094C810069185E /* Products */,
-				7B448C5E2E17A25100B91951 /* EnterOTPViewController.txt */,
+				C1CDF219BF8F2B3C3877BFDE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +109,13 @@
 				7B03529B2E094C840069185E /* SwipeAirPackageUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C1CDF219BF8F2B3C3877BFDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +137,6 @@
 				7B0352802E094C810069185E /* SwipeAirPackage */,
 			);
 			name = SwipeAirPackage;
-			packageProductDependencies = (
-				7BAB17262E165BE800B8FC2F /* CountryPickerView */,
-			);
 			productName = SwipeAirPackage;
 			productReference = 7B03527E2E094C810069185E /* SwipeAirPackage.app */;
 			productType = "com.apple.product-type.application";
@@ -156,8 +158,6 @@
 				7B0352942E094C840069185E /* SwipeAirPackageTests */,
 			);
 			name = SwipeAirPackageTests;
-			packageProductDependencies = (
-			);
 			productName = SwipeAirPackageTests;
 			productReference = 7B0352912E094C840069185E /* SwipeAirPackageTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -179,8 +179,6 @@
 				7B03529E2E094C840069185E /* SwipeAirPackageUITests */,
 			);
 			name = SwipeAirPackageUITests;
-			packageProductDependencies = (
-			);
 			productName = SwipeAirPackageUITests;
 			productReference = 7B03529B2E094C840069185E /* SwipeAirPackageUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -217,9 +215,6 @@
 			);
 			mainGroup = 7B0352752E094C810069185E;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				7BAB17252E165BE800B8FC2F /* XCRemoteSwiftPackageReference "CountryPickerView" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7B03527F2E094C810069185E /* Products */;
 			projectDirPath = "";
@@ -237,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B448C5F2E17A25100B91951 /* EnterOTPViewController.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +415,7 @@
 				DEVELOPMENT_TEAM = 6DJ82NC74U;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwipeAirPackage/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -461,6 +456,7 @@
 				DEVELOPMENT_TEAM = 6DJ82NC74U;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwipeAirPackage/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -619,25 +615,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7BAB17252E165BE800B8FC2F /* XCRemoteSwiftPackageReference "CountryPickerView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kizitonwose/CountryPickerView";
-			requirement = {
-				kind = exactVersion;
-				version = 3.3.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7BAB17262E165BE800B8FC2F /* CountryPickerView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7BAB17252E165BE800B8FC2F /* XCRemoteSwiftPackageReference "CountryPickerView" */;
-			productName = CountryPickerView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B0352762E094C810069185E /* Project object */;
 }

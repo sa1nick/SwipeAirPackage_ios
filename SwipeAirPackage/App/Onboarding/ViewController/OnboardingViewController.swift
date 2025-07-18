@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 class OnboardingViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
@@ -86,8 +87,14 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDelega
     }
 
     @objc private func skipTapped() {
-        print("Skip tapped – navigate to login screen")
-        // TODO: Replace with navigation logic to login/home screen
+        print("Skip tapped – navigate to welcome screen")
+
+        let welcomeVC = UIHostingController(rootView: WelcomeScreenBridgeView())
+        let navVC = UINavigationController(rootViewController: welcomeVC)
+        navVC.navigationBar.topItem?.hidesBackButton = true
+        navVC.modalPresentationStyle = .fullScreen
+
+        present(navVC, animated: true)
     }
 
     @objc private func pageControlTapped(_ sender: UIPageControl) {

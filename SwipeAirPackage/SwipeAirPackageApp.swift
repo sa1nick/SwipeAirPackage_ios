@@ -1,12 +1,6 @@
-//
-//  SwipeAirPackageApp.swift
-//  SwipeAirPackage
-//
-//  Created by Khichad Technologis on 23/06/25.
-//
-
 import SwiftUI
 import SwiftData
+import GoogleMaps
 
 @main
 struct SwipeAirPackageApp: App {
@@ -23,14 +17,14 @@ struct SwipeAirPackageApp: App {
         }
     }()
 
+    init() {
+        GMSServices.provideAPIKey("AIzaSyC7sLa9HK9IB5cZgYAHoglAwzoL66iDcu0")
+    }
+
     var body: some Scene {
         WindowGroup {
-//            UIKitOnboardingView()  ✅ Show UIKit onboarding screen
+            UIKitBottomTabBarBridge()
 //            WelcomeScreenBridgeView()
-//            SignUpScreenBridgeView()
-//            UIKitEnterOTPBridge()
-            LoginScreenBridgeView()
-            
         }
         .modelContainer(sharedModelContainer)
     }

@@ -28,6 +28,12 @@ class WelcomeContentViewController: UIViewController {
         setupUI()
         applyConstraints()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+
 
     private func setupUI() {
         view.backgroundColor = .white
