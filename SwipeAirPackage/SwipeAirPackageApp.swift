@@ -23,7 +23,8 @@ struct SwipeAirPackageApp: App {
 
     var body: some Scene {
         WindowGroup {
-            UIKitBottomTabBarBridge()
+//            UIKitBottomTabBarBridge()
+            EnterLocationViewControllerWrapper()
 //            WelcomeScreenBridgeView()
         }
         .modelContainer(sharedModelContainer)
